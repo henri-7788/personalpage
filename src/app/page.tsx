@@ -105,8 +105,8 @@ export default function Home() {
           <section ref={aboutSkillsRef} className={`transition-all duration-700 ease-out ${aboutSkillsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} flex flex-col md:flex-row gap-12 mb-12`}>
             {/* About Me */}
             <div className="flex-1">
-              <h2 className="text-xl font-semibold mb-4 text-orange-500">ABOUT ME</h2>
-              <p>[Your About Me Text - I'm a passionate... ]</p>
+              <h2 className="text-xl font-semibold mb-4 text-orange-500">ÜBER MICH</h2>
+              <p>Ich bin technikaffin, kreativ und immer neugierig auf Neues. Mit einem Fachabitur in Technischer Informatik und viel praktischer Erfahrung im Umgang mit digitalen Medien gestalte ich Inhalte am liebsten dort, wo Technik und Kreativität aufeinandertreffen. Ob IT, Künstliche Inteligenz, Design oder wirtschaftliche Themen – mein breites Interessenfeld spiegelt sich in allem wider, was ich mache.</p>
             </div>
 
             {/* Skills */}
@@ -115,17 +115,17 @@ export default function Home() {
               <div className="flex flex-col gap-4">
                 {/* Skill: HTML (Example Proficiency) */}
                 <div ref={skillRefs[0].ref} className={`transition-all duration-700 ease-out ${skillRefs[0].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  <span className="text-gray-200 block mb-1">HTML</span>
+                  <span className="text-gray-200 block mb-1">Premiere Pro</span>
                   <div className="w-full bg-gray-700 rounded-full h-2">
-                    <div className="h-2 rounded-full" style={{ width: '90%', background: 'linear-gradient(to right, #f97316, #f59e0b)' }}></div> {/* Adjust width and gradient colors for proficiency */}
+                    <div className="h-2 rounded-full" style={{ width: '80%', background: 'linear-gradient(to right, #f97316, #f59e0b)' }}></div> {/* Adjust width and gradient colors for proficiency */}
                   </div>
                 </div>
 
                 {/* Skill: CSS (Example Proficiency) */}
                 <div ref={skillRefs[1].ref} className={`transition-all duration-700 ease-out ${skillRefs[1].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  <span className="text-gray-200 block mb-1">CSS</span>
+                  <span className="text-gray-200 block mb-1">Photoshop</span>
                   <div className="w-full bg-gray-700 rounded-full h-2">
-                    <div className="h-2 rounded-full" style={{ width: '85%', background: 'linear-gradient(to right, #f97316, #f59e0b)' }}></div> {/* Adjust width and gradient colors for proficiency */}
+                    <div className="h-2 rounded-full" style={{ width: '75%', background: 'linear-gradient(to right, #f97316, #f59e0b)' }}></div> {/* Adjust width and gradient colors for proficiency */}
                   </div>
                 </div>
 
@@ -249,9 +249,41 @@ export default function Home() {
 
           {/* Contact Section */}
           <section ref={contactRef} className={`transition-all duration-700 ease-out ${contactInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-8`}>
-            <h2 className="text-xl font-semibold mb-4 text-orange-500">CONTACT</h2>
-            {/* Contact details can be added here, similar to previous version but matching new style */}
-            <p>[Your Contact Details]</p>
+            <h2 className="text-xl font-semibold mb-6 text-orange-500">KONTAKT</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-lg font-medium text-white mb-2">Adresse</h3>
+                  <p className="text-gray-300">Musterstraße 123</p>
+                  <p className="text-gray-300">12345 Musterstadt</p>
+                  <p className="text-gray-300">Deutschland</p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-white mb-2">Telefon</h3>
+                  <p className="text-gray-300">+49 123 456789</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-lg font-medium text-white mb-2">E-Mail</h3>
+                  <p className="text-gray-300">kontakt@beispiel.de</p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-white mb-2">Social Media</h3>
+                  <div className="flex space-x-4">
+                    <a href="https://linkedin.com/in/beispiel" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-500 transition-colors">
+                      LinkedIn
+                    </a>
+                    <a href="https://github.com/henri-7788" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-500 transition-colors">
+                      GitHub
+                    </a>
+                    <a href="https://twitter.com/beispiel" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-500 transition-colors">
+                      Twitter
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
 
           {/* The previous additional sections (Education, Soft Skills, etc.) are removed to match the template */}
