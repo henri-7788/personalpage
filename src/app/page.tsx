@@ -64,7 +64,12 @@ export default function Home() {
   });
 
   // Create refs for each skill item dynamically or individually
-  const skillRefs = Array.from({ length: 6 }).map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
+  const skillRef0 = useInView({ triggerOnce: true, threshold: 0.1 });
+  const skillRef1 = useInView({ triggerOnce: true, threshold: 0.1 });
+  const skillRef2 = useInView({ triggerOnce: true, threshold: 0.1 });
+  const skillRef3 = useInView({ triggerOnce: true, threshold: 0.1 });
+  const skillRef4 = useInView({ triggerOnce: true, threshold: 0.1 });
+  const skillRef5 = useInView({ triggerOnce: true, threshold: 0.1 });
 
   // Create refs for each project item
   const projectRefs = Array.from({ length: 2 }).map(() => useInView({ triggerOnce: true, threshold: 0.1 })); // Example: 2 projects
@@ -125,7 +130,7 @@ export default function Home() {
                   { name: 'FL Studio', width: 65 },
                   { name: 'Python', width: 45 }
                 ].map((skill, i) => (
-                  <div key={skill.name} ref={skillRefs[i]?.ref} className={`transition-all duration-700 ease-out ${skillRefs[i]?.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} animate-fade-in`}>
+                  <div key={skill.name} ref={skillRef0?.ref} className={`transition-all duration-700 ease-out ${skillRef0?.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} animate-fade-in`}>
                     <div className="icon-placeholder inline-block align-middle mr-2">{/* Icon here */}</div>
                     <span className="text-gray-200 font-medium block mb-1 text-lg">{skill.name}</span>
                     <div className="w-full bg-gray-700 rounded-full h-2">
