@@ -98,7 +98,7 @@ export default function Home() {
             <div className="flex flex-col items-center md:items-start text-center md:text-left animate-fade-in">
               {/* Icon Placeholder */}
               <div className="icon-placeholder mb-2">{/* Icon here */}</div>
-              <p className="text-orange-500 text-lg mb-2 font-semibold tracking-wide">Hello, I'm</p>
+              <p className="text-orange-500 text-lg mb-2 font-semibold tracking-wide">Hello, I&apos;m</p>
               <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-4 drop-shadow-lg tracking-tight animate-slide-in">Henri</h1>
               {/* Download CV Button */}
               <button ref={cvButtonRef} className={`transition-all duration-700 ease-out ${cvButtonInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gradient-to-r from-orange-600 to-orange-400 hover:from-orange-700 hover:to-orange-500 text-white font-semibold py-3 px-8 rounded-full shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-400 animate-fade-in`}>Download CV</button>
