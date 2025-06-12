@@ -1,7 +1,6 @@
 'use client';
 
 import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
 import Image from "next/image";
 
 export default function Home() {
@@ -72,11 +71,20 @@ export default function Home() {
   const skillRef5 = useInView({ triggerOnce: true, threshold: 0.1 });
 
   // Create refs for each project item
-  const projectRefs = Array.from({ length: 2 }).map(() => useInView({ triggerOnce: true, threshold: 0.1 })); // Example: 2 projects
+  const projectRef0 = useInView({ triggerOnce: true, threshold: 0.1 });
+  const projectRef1 = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  // Create refs for each timeline item
-  const timelineItemRefs = Array.from({ length: 3 }).map(() => useInView({ triggerOnce: true, threshold: 0.1 })); // Example: 3 timeline items
-
+  // Skill-Array mit expliziten Refs
+  const skills = [
+    { name: 'Thema: Informations Technologie', width: 95, ref: skillRef0.ref, inView: skillRef0.inView },
+    { name: 'Thema: Künstliche Intelligenz', width: 90, ref: skillRef1.ref, inView: skillRef1.inView },
+    { name: 'Premiere Pro', width: 80, ref: skillRef2.ref, inView: skillRef2.inView },
+    { name: 'Photoshop', width: 75, ref: skillRef3.ref, inView: skillRef3.inView },
+    { name: 'FL Studio', width: 65, ref: skillRef4.ref, inView: skillRef4.inView },
+    { name: 'Python', width: 45, ref: skillRef5.ref, inView: skillRef5.inView },
+  ];
+  // Project-Array mit expliziten Refs
+  const projectRefsArr = [projectRef0, projectRef1];
 
   return (
     <div className="min-h-screen bg-[#1a1a1a] text-gray-200 p-2 sm:p-4 flex justify-center overflow-x-hidden">
@@ -122,15 +130,8 @@ export default function Home() {
               <h2 className="text-xl sm:text-2xl font-bold mb-4 text-orange-500 tracking-wide">SKILLS</h2>
               <div className="flex flex-col gap-6">
                 {/* Skill Items */}
-                {[
-                  { name: 'Thema: Informations Technologie', width: 95 },
-                  { name: 'Thema: Künstliche Intelligenz', width: 90 },
-                  { name: 'Premiere Pro', width: 80 },
-                  { name: 'Photoshop', width: 75 },
-                  { name: 'FL Studio', width: 65 },
-                  { name: 'Python', width: 45 }
-                ].map((skill, i) => (
-                  <div key={skill.name} ref={skillRef0?.ref} className={`transition-all duration-700 ease-out ${skillRef0?.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} animate-fade-in`}>
+                {skills.map((skill) => (
+                  <div key={skill.name} ref={skill.ref} className={`transition-all duration-700 ease-out ${skill.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} animate-fade-in`}>
                     <div className="icon-placeholder inline-block align-middle mr-2">{/* Icon here */}</div>
                     <span className="text-gray-200 font-medium block mb-1 text-lg">{skill.name}</span>
                     <div className="w-full bg-gray-700 rounded-full h-2">
@@ -153,7 +154,7 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
 
               {/* Example Project 1 */}
-              <div ref={projectRefs[0].ref} className={`transition-all duration-700 ease-out ${projectRefs[0].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-900 bg-opacity-80 rounded-xl shadow-xl overflow-hidden animate-fade-in hover:scale-105 hover:shadow-2xl group`}>
+              <div ref={projectRefsArr[0].ref} className={`transition-all duration-700 ease-out ${projectRefsArr[0].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-900 bg-opacity-80 rounded-xl shadow-xl overflow-hidden animate-fade-in hover:scale-105 hover:shadow-2xl group`}>
                 <div className="w-full h-48 relative">
                   <Image 
                     src="/static/project1.webp" 
@@ -171,7 +172,7 @@ export default function Home() {
               </div>
 
               {/* Example Project 2 */}
-               <div ref={projectRefs[1].ref} className={`transition-all duration-700 ease-out ${projectRefs[1].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-900 bg-opacity-80 rounded-xl shadow-xl overflow-hidden animate-fade-in hover:scale-105 hover:shadow-2xl group`}>
+               <div ref={projectRefsArr[1].ref} className={`transition-all duration-700 ease-out ${projectRefsArr[1].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-900 bg-opacity-80 rounded-xl shadow-xl overflow-hidden animate-fade-in hover:scale-105 hover:shadow-2xl group`}>
                 <div className="w-full h-48 relative">
                   <Image 
                     src="/static/project2.webp" 
