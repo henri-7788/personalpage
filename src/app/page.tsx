@@ -74,10 +74,10 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-[#1a1a1a] text-gray-200 p-4 sm:p-8 flex justify-center">
+    <div className="min-h-screen bg-[#1a1a1a] text-gray-200 p-2 sm:p-4 flex justify-center overflow-x-hidden">
       {/* Outer container for the framed effect */}
       <div ref={framedContentRef} className={`transition-all duration-1000 ease-out ${framedContentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} w-full max-w-screen-lg bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-6 sm:p-8`}>
-        <div className="container mx-auto">
+        <div className="container mx-auto px-0 sm:px-4">
 
           {/* Header Section */}
           <section ref={topRef} className={`transition-all duration-700 ease-out ${topInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} flex flex-col md:flex-row items-center md:items-start justify-between mb-12 gap-8`}>
@@ -112,9 +112,9 @@ export default function Home() {
             </div>
 
             {/* Skills */}
-            <div className="flex-1 bg-gray-900 bg-opacity-70 rounded-xl shadow-lg p-8 animate-slide-in">
+            <div className="flex-1 bg-gray-900 bg-opacity-70 rounded-xl shadow-lg p-4 sm:p-8 animate-slide-in w-full">
               <div className="icon-placeholder mb-2">{/* Icon here */}</div>
-              <h2 className="text-2xl font-bold mb-4 text-orange-500 tracking-wide">SKILLS</h2>
+              <h2 className="text-xl sm:text-2xl font-bold mb-4 text-orange-500 tracking-wide">SKILLS</h2>
               <div className="flex flex-col gap-6">
                 {/* Skill Items */}
                 {[
@@ -145,7 +145,7 @@ export default function Home() {
             <h2 className="text-2xl font-bold mb-8 text-orange-500 text-center tracking-wide animate-slide-in">PROJEKTE</h2>
 
             {/* Projects Grid/List */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
 
               {/* Example Project 1 */}
               <div ref={projectRefs[0].ref} className={`transition-all duration-700 ease-out ${projectRefs[0].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-900 bg-opacity-80 rounded-xl shadow-xl overflow-hidden animate-fade-in hover:scale-105 hover:shadow-2xl group`}>
@@ -241,7 +241,7 @@ export default function Home() {
                       {/* Horizontal connector */}
                       <div className="absolute left-[-1.1rem] top-10 w-8 h-1 bg-orange-500"></div>
                       {/* Card */}
-                      <div className="bg-gray-900 bg-opacity-80 rounded-xl shadow-lg p-6 max-w-xl mx-auto ml-8 animate-fade-in">
+                      <div className="bg-gray-900 bg-opacity-80 rounded-xl shadow-lg p-6 max-w-xl mx-auto ml-8 animate-fade-in w-full sm:max-w-xl sm:ml-8 ml-2">
                         <div className="icon-placeholder mb-2">{/* Icon here */}</div>
                         <h4 className="text-xl font-bold text-white mb-1">{item.title}</h4>
                         <span className="text-sm text-gray-400 font-medium mb-2 block">{item.date}</span>
@@ -300,7 +300,7 @@ export default function Home() {
                       {/* Horizontal connector */}
                       <div className="absolute left-[-1.1rem] top-10 w-8 h-1 bg-blue-500"></div>
                       {/* Card */}
-                      <div className="bg-gray-900 bg-opacity-80 rounded-xl shadow-lg p-6 max-w-xl mx-auto ml-8 animate-fade-in">
+                      <div className="bg-gray-900 bg-opacity-80 rounded-xl shadow-lg p-6 max-w-xl mx-auto ml-8 animate-fade-in w-full sm:max-w-xl sm:ml-8 ml-2">
                         <div className="icon-placeholder mb-2">{/* Icon here */}</div>
                         <h4 className="text-xl font-bold text-white mb-1">{item.title}</h4>
                         <span className="text-sm text-gray-400 font-medium mb-2 block">{item.date}</span>
