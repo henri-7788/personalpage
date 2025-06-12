@@ -64,7 +64,7 @@ export default function Home() {
   });
 
   // Create refs for each skill item dynamically or individually
-  const skillRefs = Array.from({ length: 4 }).map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
+  const skillRefs = Array.from({ length: 6 }).map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
 
   // Create refs for each project item
   const projectRefs = Array.from({ length: 2 }).map(() => useInView({ triggerOnce: true, threshold: 0.1 })); // Example: 2 projects
@@ -82,18 +82,19 @@ export default function Home() {
           {/* Header Section */}
           <section ref={topRef} className={`transition-all duration-700 ease-out ${topInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} flex flex-col md:flex-row items-center md:items-start justify-between mb-12 gap-8`}>
             {/* Left side of Header */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <p className="text-orange-500 text-lg mb-2">Hello, I'm</p>
-              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Henri</h1> {/* Using your name here */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left animate-fade-in">
+              {/* Icon Placeholder */}
+              <div className="icon-placeholder mb-2">{/* Icon here */}</div>
+              <p className="text-orange-500 text-lg mb-2 font-semibold tracking-wide">Hello, I'm</p>
+              <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-4 drop-shadow-lg tracking-tight animate-slide-in">Henri</h1>
               {/* Download CV Button */}
-              <button ref={cvButtonRef} className={`transition-all duration-700 ease-out ${cvButtonInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300`}>
-                Download CV
-              </button>
+              <button ref={cvButtonRef} className={`transition-all duration-700 ease-out ${cvButtonInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gradient-to-r from-orange-600 to-orange-400 hover:from-orange-700 hover:to-orange-500 text-white font-semibold py-3 px-8 rounded-full shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-400 animate-fade-in`}>Download CV</button>
             </div>
 
             {/* Right side of Header - Profile Image Placeholder */}
-            <div className="flex-shrink-0 w-40 h-40 md:w-48 md:h-48 rounded-full bg-gray-700 flex items-center justify-center text-sm text-gray-400 overflow-hidden border-4 border-orange-600">
-              {/* Image Placeholder */}
+            <div className="flex-shrink-0 w-44 h-44 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-sm text-gray-400 overflow-hidden border-4 border-orange-600 shadow-lg animate-fade-in">
+              {/* Icon Placeholder */}
+              <div className="icon-placeholder">{/* Icon here */}</div>
               [Your Image Here]
             </div>
           </section>
@@ -102,50 +103,36 @@ export default function Home() {
           <hr ref={separator1Ref} className={`transition-all duration-700 ease-out ${separator1InView ? 'opacity-100' : 'opacity-0'} border-t border-gray-700 mb-12`} />
 
           {/* About Me and Skills Section */}
-          <section ref={aboutSkillsRef} className={`transition-all duration-700 ease-out ${aboutSkillsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} flex flex-col md:flex-row gap-12 mb-12`}>
+          <section ref={aboutSkillsRef} className={`transition-all duration-700 ease-out ${aboutSkillsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} flex flex-col md:flex-row gap-12 mb-12 animate-fade-in`}>
             {/* About Me */}
-            <div className="flex-1">
-              <h2 className="text-xl font-semibold mb-4 text-orange-500">ÜBER MICH</h2>
-              <p>Ich bin technikaffin, kreativ und immer neugierig auf Neues. Mit einem Fachabitur in Technischer Informatik und viel praktischer Erfahrung im Umgang mit digitalen Medien gestalte ich Inhalte am liebsten dort, wo Technik und Kreativität aufeinandertreffen. Ob IT, Künstliche Inteligenz, Design oder wirtschaftliche Themen – mein breites Interessenfeld spiegelt sich in allem wider, was ich mache.</p>
+            <div className="flex-1 bg-gray-900 bg-opacity-70 rounded-xl shadow-lg p-8 animate-slide-in">
+              <div className="icon-placeholder mb-2">{/* Icon here */}</div>
+              <h2 className="text-2xl font-bold mb-4 text-orange-500 tracking-wide">ÜBER MICH</h2>
+              <p className="text-lg leading-relaxed text-gray-200">Ich bin technikaffin, kreativ und immer neugierig auf Neues. Mit einem Fachabitur in Technischer Informatik und viel praktischer Erfahrung im Umgang mit digitalen Medien gestalte ich Inhalte am liebsten dort, wo Technik und Kreativität aufeinandertreffen. Ob IT, Künstliche Inteligenz, Design oder wirtschaftliche Themen – mein breites Interessenfeld spiegelt sich in allem wider, was ich mache.</p>
             </div>
 
             {/* Skills */}
-            <div className="flex-1">
-              <h2 className="text-xl font-semibold mb-4 text-orange-500">SKILLS</h2>
-              <div className="flex flex-col gap-4">
-                {/* Skill: HTML (Example Proficiency) */}
-                <div ref={skillRefs[0].ref} className={`transition-all duration-700 ease-out ${skillRefs[0].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  <span className="text-gray-200 block mb-1">Premiere Pro</span>
-                  <div className="w-full bg-gray-700 rounded-full h-2">
-                    <div className="h-2 rounded-full" style={{ width: '80%', background: 'linear-gradient(to right, #f97316, #f59e0b)' }}></div> {/* Adjust width and gradient colors for proficiency */}
+            <div className="flex-1 bg-gray-900 bg-opacity-70 rounded-xl shadow-lg p-8 animate-slide-in">
+              <div className="icon-placeholder mb-2">{/* Icon here */}</div>
+              <h2 className="text-2xl font-bold mb-4 text-orange-500 tracking-wide">SKILLS</h2>
+              <div className="flex flex-col gap-6">
+                {/* Skill Items */}
+                {[
+                  { name: 'Thema: Informations Technologie', width: 95 },
+                  { name: 'Thema: Künstliche Intelligenz', width: 90 },
+                  { name: 'Premiere Pro', width: 80 },
+                  { name: 'Photoshop', width: 75 },
+                  { name: 'FL Studio', width: 65 },
+                  { name: 'Python', width: 45 }
+                ].map((skill, i) => (
+                  <div key={skill.name} ref={skillRefs[i]?.ref} className={`transition-all duration-700 ease-out ${skillRefs[i]?.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} animate-fade-in`}>
+                    <div className="icon-placeholder inline-block align-middle mr-2">{/* Icon here */}</div>
+                    <span className="text-gray-200 font-medium block mb-1 text-lg">{skill.name}</span>
+                    <div className="w-full bg-gray-700 rounded-full h-2">
+                      <div className="h-2 rounded-full transition-all duration-700" style={{ width: `${skill.width}%`, background: 'linear-gradient(to right, #f97316, #f59e0b)' }}></div>
+                    </div>
                   </div>
-                </div>
-
-                {/* Skill: CSS (Example Proficiency) */}
-                <div ref={skillRefs[1].ref} className={`transition-all duration-700 ease-out ${skillRefs[1].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  <span className="text-gray-200 block mb-1">Photoshop</span>
-                  <div className="w-full bg-gray-700 rounded-full h-2">
-                    <div className="h-2 rounded-full" style={{ width: '75%', background: 'linear-gradient(to right, #f97316, #f59e0b)' }}></div> {/* Adjust width and gradient colors for proficiency */}
-                  </div>
-                </div>
-
-                {/* Skill: JavaScript (Example Proficiency) */}
-                <div ref={skillRefs[2].ref} className={`transition-all duration-700 ease-out ${skillRefs[2].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  <span className="text-gray-200 block mb-1">JavaScript</span>
-                  <div className="w-full bg-gray-700 rounded-full h-2">
-                    <div className="h-2 rounded-full" style={{ width: '80%', background: 'linear-gradient(to right, #f97316, #f59e0b)' }}></div> {/* Adjust width and gradient colors for proficiency */}
-                  </div>
-                </div>
-
-                {/* Skill: React (Example Proficiency) */}
-                <div ref={skillRefs[3].ref} className={`transition-all duration-700 ease-out ${skillRefs[3].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  <span className="text-gray-200 block mb-1">React</span>
-                  <div className="w-full bg-gray-700 rounded-full h-2">
-                    <div className="h-2 rounded-full" style={{ width: '75%', background: 'linear-gradient(to right, #f97316, #f59e0b)' }}></div> {/* Adjust width and gradient colors for proficiency */}
-                  </div>
-                </div>
-
-                {/* Add other skills here */}
+                ))}
               </div>
             </div>
           </section>
@@ -154,33 +141,33 @@ export default function Home() {
           <hr ref={separator2Ref} className={`transition-all duration-700 ease-out ${separator2InView ? 'opacity-100' : 'opacity-0'} border-t border-gray-700 mb-12`} />
 
           {/* Projekte Section */}
-          <section ref={projectsRef} className={`transition-all duration-700 ease-out ${projectsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-12`}>
-            <h2 className="text-xl font-semibold mb-6 text-orange-500 text-center">PROJEKTE</h2>
+          <section ref={projectsRef} className={`transition-all duration-700 ease-out ${projectsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-12 animate-fade-in`}>
+            <h2 className="text-2xl font-bold mb-8 text-orange-500 text-center tracking-wide animate-slide-in">PROJEKTE</h2>
 
             {/* Projects Grid/List */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
               {/* Example Project 1 */}
-              <div ref={projectRefs[0].ref} className={`transition-all duration-700 ease-out ${projectRefs[0].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-700 bg-opacity-50 rounded-lg shadow-lg overflow-hidden`}>
-                {/* Project Image Placeholder */}
-                <div className="w-full h-48 bg-gray-600 flex items-center justify-center text-gray-400 text-sm">
+              <div ref={projectRefs[0].ref} className={`transition-all duration-700 ease-out ${projectRefs[0].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-900 bg-opacity-80 rounded-xl shadow-xl overflow-hidden animate-fade-in hover:scale-105 hover:shadow-2xl group`}>
+                <div className="w-full h-48 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-gray-400 text-lg font-semibold animate-pulse">
+                  <div className="icon-placeholder mr-2">{/* Icon here */}</div>
                   [Project 1 Image]
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-white mb-2">[Project 1 Title]</h3>
-                  <p className="text-gray-300 text-sm">[Short description of Project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.]</p>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">[Project 1 Title]</h3>
+                  <p className="text-gray-300 text-base">[Short description of Project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.]</p>
                 </div>
               </div>
 
               {/* Example Project 2 */}
-               <div ref={projectRefs[1].ref} className={`transition-all duration-700 ease-out ${projectRefs[1].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-700 bg-opacity-50 rounded-lg shadow-lg overflow-hidden`}>
-                {/* Project Image Placeholder */}
-                <div className="w-full h-48 bg-gray-600 flex items-center justify-center text-gray-400 text-sm">
+               <div ref={projectRefs[1].ref} className={`transition-all duration-700 ease-out ${projectRefs[1].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-900 bg-opacity-80 rounded-xl shadow-xl overflow-hidden animate-fade-in hover:scale-105 hover:shadow-2xl group`}>
+                <div className="w-full h-48 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-gray-400 text-lg font-semibold animate-pulse">
+                  <div className="icon-placeholder mr-2">{/* Icon here */}</div>
                   [Project 2 Image]
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-white mb-2">[Project 2 Title]</h3>
-                  <p className="text-gray-300 text-sm">[Short description of Project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.]</p>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">[Project 2 Title]</h3>
+                  <p className="text-gray-300 text-base">[Short description of Project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.]</p>
                 </div>
               </div>
 
@@ -193,53 +180,121 @@ export default function Home() {
           <hr ref={separator3Ref} className={`transition-all duration-700 ease-out ${separator3InView ? 'opacity-100' : 'opacity-0'} border-t border-gray-700 mb-12`} />
 
           {/* Lebenslauf Section (Timeline) */}
-          <section ref={timelineRef} className={`transition-all duration-700 ease-out ${timelineInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-12`}>
-             <h2 className="text-xl font-semibold mb-6 text-orange-500 text-center">LEBENSLAUF</h2>
-
-            {/* Timeline Container */}
-            <div className="relative border-l border-gray-700 ml-4 md:ml-12">
-
-              {/* Timeline Item Example 1 */}
-              <div ref={timelineItemRefs[0].ref} className={`transition-all duration-700 ease-out ${timelineItemRefs[0].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-8 flex items-start`}>
-                {/* Timeline Point */}
-                <div className="absolute w-3 h-3 bg-orange-500 rounded-full mt-1.5 -left-1.5 border border-gray-900"></div>
-                {/* Timeline Content */}
-                <div className="ml-6">
-                  <h3 className="text-lg font-semibold text-white">[Position/Degree]</h3>
-                  <time className="block mb-2 text-sm font-normal leading-none text-gray-400">[Start Date] - [End Date]</time>
-                  <p className="mb-2 text-base font-normal text-gray-300">[Company/Institution]</p>
-                  <p className="text-sm font-normal text-gray-400">[Brief Description of Responsibilities/Studies]</p>
+          <section ref={timelineRef} className={`transition-all duration-700 ease-out ${timelineInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-12 animate-fade-in`}>
+            <h2 className="text-3xl font-extrabold mb-10 text-orange-500 text-center tracking-wide animate-slide-in">LEBENSLAUF</h2>
+            <div className="flex flex-col gap-12">
+              {/* Berufliche Erfahrung */}
+              <div>
+                <div className="flex items-center mb-6">
+                  <div className="w-2 h-8 bg-orange-500 rounded mr-3 animate-pulse"></div>
+                  <h3 className="text-2xl font-semibold text-white tracking-wide">Berufliche Erfahrung</h3>
+                </div>
+                <div className="relative border-l-4 border-orange-500 pl-8 flex flex-col gap-8">
+                  {/* Timeline Cards Beruf */}
+                  {[
+                    {
+                      title: 'Selbstständig',
+                      date: 'Seit 2024',
+                      details: [
+                        'Produktion von Shortform Content',
+                        'Youtube Kanal mit 30.000 Abonnenten',
+                        '200.000 Aufrufe pro Monat auf TikTok',
+                      ],
+                    },
+                    {
+                      title: 'Bundesfreiwilligendienst, Frankfurt',
+                      date: '2023/2024',
+                      details: ['BFD im Historischen Museum Frankfurt als Haustechniker'],
+                    },
+                    {
+                      title: 'Deutsche Bank Park, Frankfurt',
+                      date: '2022 - 2023',
+                      details: ['Minijob in der Logistik'],
+                    },
+                    {
+                      title: 'Dental Delight, Bad Homburg',
+                      date: '2021 – 2022',
+                      details: ['Minijob als Aushilfe im Bereich E-Commerce'],
+                    },
+                  ].map((item, idx, arr) => (
+                    <div key={item.title} className="relative flex items-start group">
+                      {/* Timeline Dot */}
+                      <div className="absolute left-[-2.1rem] top-8 z-10 flex flex-col items-center">
+                        <div className="w-5 h-5 bg-orange-500 border-4 border-gray-900 rounded-full animate-pulse"></div>
+                        {/* Vertical line below dot, except for last item */}
+                        {idx < arr.length - 1 && (
+                          <div className="w-1 h-full bg-orange-500"></div>
+                        )}
+                      </div>
+                      {/* Horizontal connector */}
+                      <div className="absolute left-[-1.1rem] top-10 w-8 h-1 bg-orange-500"></div>
+                      {/* Card */}
+                      <div className="bg-gray-900 bg-opacity-80 rounded-xl shadow-lg p-6 max-w-xl mx-auto ml-8 animate-fade-in">
+                        <div className="icon-placeholder mb-2">{/* Icon here */}</div>
+                        <h4 className="text-xl font-bold text-white mb-1">{item.title}</h4>
+                        <span className="text-sm text-gray-400 font-medium mb-2 block">{item.date}</span>
+                        <ul className="list-disc ml-5 text-gray-300 text-sm space-y-1">
+                          {item.details.map((d, i) => <li key={i}>{d}</li>)}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-
-              {/* Timeline Item Example 2 */}
-               <div ref={timelineItemRefs[1].ref} className={`transition-all duration-700 ease-out ${timelineItemRefs[1].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-8 flex items-start`}>
-                {/* Timeline Point */}
-                <div className="absolute w-3 h-3 bg-orange-500 rounded-full mt-1.5 -left-1.5 border border-gray-900"></div>
-                {/* Timeline Content */}
-                <div className="ml-6">
-                  <h3 className="text-lg font-semibold text-white">[Position/Degree]</h3>
-                  <time className="block mb-2 text-sm font-normal leading-none text-gray-400">[Start Date] - [End Date]</time>
-                  <p className="mb-2 text-base font-normal text-gray-300">[Company/Institution]</p>
-                  <p className="text-sm font-normal text-gray-400">[Brief Description of Responsibilities/Studies]</p>
+              {/* Bildungsweg */}
+              <div>
+                <div className="flex items-center mb-6 mt-10">
+                  <div className="w-2 h-8 bg-blue-500 rounded mr-3 animate-pulse"></div>
+                  <h3 className="text-2xl font-semibold text-white tracking-wide">Bildungsweg</h3>
+                </div>
+                <div className="relative border-l-4 border-blue-500 pl-8 flex flex-col gap-8">
+                  {/* Timeline Cards Bildung */}
+                  {[
+                    {
+                      title: 'Hochtaunusschule (Gymnasialzweig), Oberursel',
+                      date: '2021 – 2023',
+                      details: ['Schulischer Teil der Fachhochschulreife (Technische Informatik)'],
+                    },
+                    {
+                      title: 'Gesamtschule am Gluckenstein, Bad Homburg',
+                      date: '2020 – 2021',
+                      details: ['Qualifizierter Realschulabschluss'],
+                    },
+                    {
+                      title: 'Kaiserin-Friedrich-Gymnasium, Bad Homburg',
+                      date: '2014 – 2020',
+                      details: [],
+                    },
+                    {
+                      title: 'Hölderlin-Schule, Bad Homburg',
+                      date: '2009 – 2014',
+                      details: ['Grundschule mit Eingangsstufe'],
+                    },
+                  ].map((item, idx, arr) => (
+                    <div key={item.title} className="relative flex items-start group">
+                      {/* Timeline Dot */}
+                      <div className="absolute left-[-2.1rem] top-8 z-10 flex flex-col items-center">
+                        <div className="w-5 h-5 bg-blue-500 border-4 border-gray-900 rounded-full animate-pulse"></div>
+                        {/* Vertical line below dot, except for last item */}
+                        {idx < arr.length - 1 && (
+                          <div className="w-1 h-full bg-blue-500"></div>
+                        )}
+                      </div>
+                      {/* Horizontal connector */}
+                      <div className="absolute left-[-1.1rem] top-10 w-8 h-1 bg-blue-500"></div>
+                      {/* Card */}
+                      <div className="bg-gray-900 bg-opacity-80 rounded-xl shadow-lg p-6 max-w-xl mx-auto ml-8 animate-fade-in">
+                        <div className="icon-placeholder mb-2">{/* Icon here */}</div>
+                        <h4 className="text-xl font-bold text-white mb-1">{item.title}</h4>
+                        <span className="text-sm text-gray-400 font-medium mb-2 block">{item.date}</span>
+                        {item.details.length > 0 && (
+                          <p className="text-gray-300 text-sm">{item.details[0]}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-
-              {/* Timeline Item Example 3 */}
-               <div ref={timelineItemRefs[2].ref} className={`transition-all duration-700 ease-out ${timelineItemRefs[2].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-8 flex items-start`}>
-                {/* Timeline Point */}
-                <div className="absolute w-3 h-3 bg-orange-500 rounded-full mt-1.5 -left-1.5 border border-gray-900"></div>
-                {/* Timeline Content */}
-                <div className="ml-6">
-                  <h3 className="text-lg font-semibold text-white">[Position/Degree]</h3>
-                  <time className="block mb-2 text-sm font-normal leading-none text-gray-400">[Start Date] - [End Date]</time>
-                  <p className="mb-2 text-base font-normal text-gray-300">[Company/Institution]</p>
-                  <p className="text-sm font-normal text-gray-400">[Brief Description of Responsibilities/Studies]</p>
-                </div>
-              </div>
-
-              {/* Add more timeline items here */}
-
             </div>
           </section>
 
@@ -248,39 +303,25 @@ export default function Home() {
 
 
           {/* Contact Section */}
-          <section ref={contactRef} className={`transition-all duration-700 ease-out ${contactInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-8`}>
-            <h2 className="text-xl font-semibold mb-6 text-orange-500">KONTAKT</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg font-medium text-white mb-2">Adresse</h3>
-                  <p className="text-gray-300">Musterstraße 123</p>
-                  <p className="text-gray-300">12345 Musterstadt</p>
-                  <p className="text-gray-300">Deutschland</p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-white mb-2">Telefon</h3>
-                  <p className="text-gray-300">+49 123 456789</p>
-                </div>
+          <section ref={contactRef} className={`transition-all duration-700 ease-out ${contactInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-8 animate-fade-in`}>
+            <h2 className="text-2xl font-bold mb-6 text-orange-500 animate-slide-in">KONTAKT</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-6 bg-gray-900 bg-opacity-70 rounded-xl shadow-lg p-8 animate-fade-in">
+                <div className="icon-placeholder mb-2">{/* Icon here */}</div>
+                <h3 className="text-lg font-semibold text-white mb-2">Adresse</h3>
+                <p className="text-gray-300">Oberer Mittelweg 3</p>
+                <p className="text-gray-300">61352 Bad Homburg</p>
+                <p className="text-gray-300">Deutschland</p>
+                <h3 className="text-lg font-semibold text-white mb-2 mt-6">Telefon</h3>
+                <p className="text-gray-300">+49 172 9453652</p>
               </div>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg font-medium text-white mb-2">E-Mail</h3>
-                  <p className="text-gray-300">kontakt@beispiel.de</p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-white mb-2">Social Media</h3>
-                  <div className="flex space-x-4">
-                    <a href="https://linkedin.com/in/beispiel" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-500 transition-colors">
-                      LinkedIn
-                    </a>
-                    <a href="https://github.com/henri-7788" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-500 transition-colors">
-                      GitHub
-                    </a>
-                    <a href="https://twitter.com/beispiel" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-500 transition-colors">
-                      Twitter
-                    </a>
-                  </div>
+              <div className="space-y-6 bg-gray-900 bg-opacity-70 rounded-xl shadow-lg p-8 animate-fade-in">
+                <div className="icon-placeholder mb-2">{/* Icon here */}</div>
+                <h3 className="text-lg font-semibold text-white mb-2">E-Mail</h3>
+                <p className="text-gray-300">lattenmayer.henri@gmail.com</p>
+                <h3 className="text-lg font-semibold text-white mb-2 mt-6">Social Media</h3>
+                <div className="flex space-x-4">
+                  <a href="https://github.com/henri-7788" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-500 transition-colors hover:scale-110 animate-fade-in">GitHub</a>
                 </div>
               </div>
             </div>
