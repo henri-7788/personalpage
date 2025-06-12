@@ -149,25 +149,37 @@ export default function Home() {
 
               {/* Example Project 1 */}
               <div ref={projectRefs[0].ref} className={`transition-all duration-700 ease-out ${projectRefs[0].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-900 bg-opacity-80 rounded-xl shadow-xl overflow-hidden animate-fade-in hover:scale-105 hover:shadow-2xl group`}>
-                <div className="w-full h-48 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-gray-400 text-lg font-semibold animate-pulse">
-                  <div className="icon-placeholder mr-2">{/* Icon here */}</div>
-                  [Project 1 Image]
+                <div className="w-full h-48 relative">
+                  <Image 
+                    src="/static/project1.webp" 
+                    alt="Screenshot von Project 1" 
+                    fill 
+                    className="object-cover rounded-t-xl" 
+                    priority
+                  />
+                  <div className="icon-placeholder absolute top-2 left-2">{/* Icon here */}</div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">[Project 1 Title]</h3>
-                  <p className="text-gray-300 text-base">[Short description of Project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.]</p>
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">Vollautomatischer Shortform Content</h3>
+                  <p className="text-gray-300 text-base">Mithilfe von KI, Python und einem ausgemusterten MiniPc wird alle 3-6 Stunden ein perfekt geschnittenes Video erstellt und ohne jegliche Eingriffe auf TikTok und Instagram hochgeladen.</p>
                 </div>
               </div>
 
               {/* Example Project 2 */}
                <div ref={projectRefs[1].ref} className={`transition-all duration-700 ease-out ${projectRefs[1].inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gray-900 bg-opacity-80 rounded-xl shadow-xl overflow-hidden animate-fade-in hover:scale-105 hover:shadow-2xl group`}>
-                <div className="w-full h-48 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-gray-400 text-lg font-semibold animate-pulse">
-                  <div className="icon-placeholder mr-2">{/* Icon here */}</div>
-                  [Project 2 Image]
+                <div className="w-full h-48 relative">
+                  <Image 
+                    src="/static/project2.webp" 
+                    alt="Screenshot von Project 2" 
+                    fill 
+                    className="object-cover rounded-t-xl" 
+                    priority
+                  />
+                  <div className="icon-placeholder absolute top-2 left-2">{/* Icon here */}</div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">[Project 2 Title]</h3>
-                  <p className="text-gray-300 text-base">[Short description of Project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.]</p>
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">Persönliches Krypto Übersichtsterminal</h3>
+                  <p className="text-gray-300 text-base">Candl ist eine Webseite, die mithilfe von APIs allerlei Daten über Kryptowährungen sammelt und in einem Übersichtsterminal anzeigt. Dieses Projekt ist noch in Arbeit.</p>
                 </div>
               </div>
 
@@ -204,7 +216,7 @@ export default function Home() {
                     {
                       title: 'Bundesfreiwilligendienst, Frankfurt',
                       date: '2023/2024',
-                      details: ['BFD im Historischen Museum Frankfurt als Haustechniker'],
+                      details: ['BFD im Historischen Museum Frankfurt als Haustechniker', 'Erwerb der Fachhochschulreife '],
                     },
                     {
                       title: 'Deutsche Bank Park, Frankfurt',
@@ -250,6 +262,11 @@ export default function Home() {
                 <div className="relative border-l-4 border-blue-500 pl-8 flex flex-col gap-8">
                   {/* Timeline Cards Bildung */}
                   {[
+                    {
+                      title: 'Studium Digital Media Systems, Technische Hochschule Mittelhessen, Gießen',
+                      date: 'Seit Oktober, 2024',
+                      details: [],
+                    },
                     {
                       title: 'Hochtaunusschule (Gymnasialzweig), Oberursel',
                       date: '2021 – 2023',
