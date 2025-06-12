@@ -98,7 +98,7 @@ export default function Home() {
             <div className="flex flex-col items-center md:items-start text-center md:text-left animate-fade-in">
               {/* Icon Placeholder */}
               <div className="icon-placeholder mb-2">{/* Icon here */}</div>
-              <p className="text-orange-500 text-lg mb-2 font-semibold tracking-wide">Hello, I'm</p>
+              <p className="text-orange-500 text-lg mb-2 font-semibold tracking-wide">Hello, I&apos;m</p>
               <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-4 drop-shadow-lg tracking-tight animate-slide-in">Henri</h1>
               {/* Download CV Button */}
               <button ref={cvButtonRef} className={`transition-all duration-700 ease-out ${cvButtonInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gradient-to-r from-orange-600 to-orange-400 hover:from-orange-700 hover:to-orange-500 text-white font-semibold py-3 px-8 rounded-full shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-400 animate-fade-in`}>Download CV</button>
@@ -234,15 +234,15 @@ export default function Home() {
                       date: '2021 – 2022',
                       details: ['Minijob als Aushilfe im Bereich E-Commerce'],
                     },
-                  ].map((item, idx, arr) => (
+                  ].map((item) => (
                     <div key={item.title} className="relative flex items-start group">
                       {/* Timeline Dot */}
                       <div className="absolute left-[-2.1rem] top-8 z-10 flex flex-col items-center">
                         <div className="w-5 h-5 bg-orange-500 border-4 border-gray-900 rounded-full animate-pulse"></div>
                         {/* Vertical line below dot, except for last item */}
-                        {idx < arr.length - 1 && (
+                        {/* idx < arr.length - 1 && (
                           <div className="w-1 h-full bg-orange-500"></div>
-                        )}
+                        )} */}
                       </div>
                       {/* Horizontal connector */}
                       <div className="absolute left-[-1.1rem] top-10 w-8 h-1 bg-orange-500"></div>
@@ -252,7 +252,7 @@ export default function Home() {
                         <h4 className="text-xl font-bold text-white mb-1">{item.title}</h4>
                         <span className="text-sm text-gray-400 font-medium mb-2 block">{item.date}</span>
                         <ul className="list-disc ml-5 text-gray-300 text-sm space-y-1">
-                          {item.details.map((d, i) => <li key={i}>{d}</li>)}
+                          {item.details.map((d) => <li key={d}>{d}</li>)}
                         </ul>
                       </div>
                     </div>
@@ -293,15 +293,15 @@ export default function Home() {
                       date: '2009 – 2014',
                       details: ['Grundschule mit Eingangsstufe'],
                     },
-                  ].map((item, idx, arr) => (
+                  ].map((item) => (
                     <div key={item.title} className="relative flex items-start group">
                       {/* Timeline Dot */}
                       <div className="absolute left-[-2.1rem] top-8 z-10 flex flex-col items-center">
                         <div className="w-5 h-5 bg-blue-500 border-4 border-gray-900 rounded-full animate-pulse"></div>
                         {/* Vertical line below dot, except for last item */}
-                        {idx < arr.length - 1 && (
+                        {/* idx < arr.length - 1 && (
                           <div className="w-1 h-full bg-blue-500"></div>
-                        )}
+                        )} */}
                       </div>
                       {/* Horizontal connector */}
                       <div className="absolute left-[-1.1rem] top-10 w-8 h-1 bg-blue-500"></div>
