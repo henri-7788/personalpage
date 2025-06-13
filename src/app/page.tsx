@@ -2,6 +2,12 @@
 
 import { useInView } from 'react-intersection-observer';
 import Image from "next/image";
+import computerChipIcon from './icons/skill-icons/computer-chip-svgrepo-com.svg';
+import aiIcon from './icons/skill-icons/ai-svgrepo-com.svg';
+import premiereIcon from './icons/skill-icons/adobe-premiere-pro.svg';
+import photoshopIcon from './icons/skill-icons/adobe-photoshop.svg';
+import flStudioIcon from './icons/skill-icons/fl-studio-icon-.svg';
+import pythonIcon from './icons/skill-icons/python-icon.svg';
 
 export default function Home() {
   // Use the useInView hook for relevant sections and elements
@@ -76,12 +82,12 @@ export default function Home() {
 
   // Skill-Array mit expliziten Refs
   const skills = [
-    { name: 'Thema: Informations Technologie', width: 95, ref: skillRef0.ref, inView: skillRef0.inView },
-    { name: 'Thema: Künstliche Intelligenz', width: 90, ref: skillRef1.ref, inView: skillRef1.inView },
-    { name: 'Premiere Pro', width: 80, ref: skillRef2.ref, inView: skillRef2.inView },
-    { name: 'Photoshop', width: 75, ref: skillRef3.ref, inView: skillRef3.inView },
-    { name: 'FL Studio', width: 65, ref: skillRef4.ref, inView: skillRef4.inView },
-    { name: 'Python', width: 45, ref: skillRef5.ref, inView: skillRef5.inView },
+    { name: 'Thema: Informations Technologie', width: 95, ref: skillRef0.ref, inView: skillRef0.inView, icon: computerChipIcon },
+    { name: 'Thema: Künstliche Intelligenz', width: 84, ref: skillRef1.ref, inView: skillRef1.inView, icon: aiIcon },
+    { name: 'Premiere Pro', width: 74, ref: skillRef2.ref, inView: skillRef2.inView, icon: premiereIcon },
+    { name: 'Photoshop', width: 71, ref: skillRef3.ref, inView: skillRef3.inView, icon: photoshopIcon },
+    { name: 'FL Studio', width: 65, ref: skillRef4.ref, inView: skillRef4.inView, icon: flStudioIcon },
+    { name: 'Python', width: 45, ref: skillRef5.ref, inView: skillRef5.inView, icon: pythonIcon },
   ];
   // Project-Array mit expliziten Refs
   const projectRefsArr = [projectRef0, projectRef1];
@@ -130,10 +136,20 @@ export default function Home() {
               <h2 className="text-xl sm:text-2xl font-bold mb-4 text-orange-500 tracking-wide">SKILLS</h2>
               <div className="flex flex-col gap-6">
                 {/* Skill Items */}
-                {skills.map((skill) => (
+                {skills.map((skill, idx) => (
                   <div key={skill.name} ref={skill.ref} className={`transition-all duration-700 ease-out ${skill.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} animate-fade-in`}>
-                    <div className="icon-placeholder inline-block align-middle mr-2">{/* Icon here */}</div>
-                    <span className="text-gray-200 font-medium block mb-1 text-lg">{skill.name}</span>
+                    <div className="flex items-center mb-1">
+                      <span className="inline-block align-middle mr-2">
+                        <Image 
+                          src={skill.icon} 
+                          width={25} 
+                          height={25} 
+                          alt={skill.name + ' Icon'} 
+                          style={idx < 2 ? { filter: 'invert(1) brightness(2)' } : {}} 
+                        />
+                      </span>
+                      <span className="text-gray-200 font-medium text-lg">{skill.name}</span>
+                    </div>
                     <div className="w-full bg-gray-700 rounded-full h-2">
                       <div className="h-2 rounded-full transition-all duration-700" style={{ width: `${skill.width}%`, background: 'linear-gradient(to right, #f97316, #f59e0b)' }}></div>
                     </div>
