@@ -8,8 +8,14 @@ import premiereIcon from './icons/skill-icons/adobe-premiere-pro.svg';
 import photoshopIcon from './icons/skill-icons/adobe-photoshop.svg';
 import flStudioIcon from './icons/skill-icons/fl-studio-icon-.svg';
 import pythonIcon from './icons/skill-icons/python-icon.svg';
+import { useEffect } from 'react';
 
 export default function Home() {
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Use the useInView hook for relevant sections and elements
   const { ref: topRef, inView: topInView } = useInView({
     triggerOnce: true,
@@ -107,7 +113,15 @@ export default function Home() {
               <p className="text-orange-500 text-lg mb-2 font-semibold tracking-wide">Hello, I&apos;m</p>
               <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-4 drop-shadow-lg tracking-tight animate-slide-in">Henri</h1>
               {/* Download CV Button */}
-              <button ref={cvButtonRef} className={`transition-all duration-700 ease-out ${cvButtonInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gradient-to-r from-orange-600 to-orange-400 hover:from-orange-700 hover:to-orange-500 text-white font-semibold py-3 px-8 rounded-full shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-400 animate-fade-in`}>Download CV</button>
+              <a 
+                href="https://drive.usercontent.google.com/download?id=1szsnCp3EwviwfhHFgj6JFTjVA1JH_on_&export=download&authuser=0&confirm=t&uuid=865a9bd1-596b-448c-a43b-88a81f21db6b&at=AN8xHopcTj5VJ46G92ZXeL04TOPB:1750174897659"
+                target="_blank"
+                rel="noopener noreferrer"
+                ref={cvButtonRef}
+                className={`transition-all duration-700 ease-out ${cvButtonInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} bg-gradient-to-r from-orange-600 to-orange-400 hover:from-orange-700 hover:to-orange-500 text-white font-semibold py-3 px-8 rounded-full shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-400 animate-fade-in inline-block`}
+              >
+                Download CV
+              </a>
             </div>
 
             {/* Right side of Header - Profile Image Placeholder */}
